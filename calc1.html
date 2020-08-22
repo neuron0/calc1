@@ -1,0 +1,109 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <p id="screen"></p>
+    <button  value=1 onclick="userinput(event)">1</button>
+    <button  value=2 onclick="userinput(event)">2</button>
+    <button value=3 onclick="userinput(event)">3</button>
+    <button value=4 onclick="userinput(event)">4</button>
+    <button value=5 onclick="userinput(event)">5</button>
+    <button value=6 onclick="userinput(event)">6</button>
+    <button value=7 onclick="userinput(event)">7</button>
+    <button value=8 onclick="userinput(event)">8</button>
+    <button value=9 onclick="userinput(event)">9</button>
+    <button value=0 onclick="userinput(event)">0</button>
+    <button value='C' onclick="userinput(event)">C</button>
+    <button value='AC' onclick="userinput(event)">AC</button>
+    <button value='+' onclick="userinput(event)">+</button>
+    <button value='-' onclick="userinput(event)">-</button>
+    <button value='*' onclick="userinput(event)">x</button>
+    <button value='/' onclick="userinput(event)">/</button>
+    <button value='=' onclick="showresult()">=</button>
+    
+
+<script>
+    var a = [];
+    var e = [];
+   var operation;
+    var count = 1;
+    var b = document.getElementById('screen');
+    function userinput(event){
+        if(event.target.value == "C" ){
+            a.pop();
+            b.innerHTML = a.join("");
+        }
+        else if(event.target.value == "AC"){
+            a = []
+            b.innerHTML = a.join("");
+        }
+        else{
+                if(event.target.value == "+"){
+                    operation = event.target.value;
+                    b.innerHTML="";
+                }
+                else if(event.target.value == "-"){
+                    operation = event.target.value;
+                    b.innerHTML="";
+                }
+                else if(event.target.value == "*"){
+                    operation = event.target.value;
+                    b.innerHTML="";
+                }
+                else if(event.target.value == "/"){
+                    operation = event.target.value;
+                    b.innerHTML="";
+                }
+
+                else{
+                    if(operation){
+                    e.push(event.target.value);
+                    b.innerHTML = e.join("");  
+                    console.log(e);   
+                    }
+                    else{
+                        a.push(event.target.value);
+                        b.innerHTML = a.join("");  
+                        console.log(a);
+                    }
+                   
+                }
+               
+            }
+
+        
+        }
+
+
+        function showresult(){
+            var d = a.join("");
+            var f = e.join("");  
+            if(operation == "+"){
+                ans = parseInt(d) + parseInt(f);
+                b.innerHTML = `${ans}`;
+            }
+            if(operation == "-"){
+                ans = parseInt(d) - parseInt(f);
+                b.innerHTML = `${ans}`;
+            }
+            if(operation == "*"){
+                ans = parseInt(d) *  parseInt(f);
+                b.innerHTML = `${ans}`;
+            }
+            if(operation == "/"){
+                ans = parseInt(d) /  parseInt(f);
+                b.innerHTML = `${ans}`;
+            }
+        }
+
+   
+ 
+    
+    
+
+</script>
+</body>
+</html>
